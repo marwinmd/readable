@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import '../App.css';
 import {fetchAllCategories, fetchAllPosts} from "../utils/api";
 import Categories from "./Categories"
-import Posts from "./Posts"
+import {Grid, PageHeader, Row} from "react-bootstrap"
 
 class App extends Component {
+
 
     state = {
         categories: [],
@@ -24,9 +25,16 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <Categories categories={this.state.categories}/>
-                <Posts posts={this.state.posts}/>
+
+            <div className="Grid">
+                <Grid>
+                    <Row><PageHeader className={"text-center"}>Online Learning - Your place to start learning!
+                        <p className={"text-center"}><small>Choose a topic you are interested in.</small></p>
+                    </PageHeader><Row/>
+                    </Row>
+                    {/*TODO: Hier muss das über den globalen State erfolgen*/}
+                    <Categories categories={this.state.categories} posts={this.state.posts}/>
+                </Grid>
             </div>
         );
     }

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import {PropTypes} from 'prop-types';
+import Post from './Post';
+import {Col, Grid, Row} from 'react-bootstrap'
 
 class Posts extends Component {
     static propTypes = {}
@@ -7,10 +9,10 @@ class Posts extends Component {
     render() {
         return (
             <div>
-                <h1>Posts</h1>
-                <ul>
-                    {this.props.posts.map((posts) => (<li key={posts.id}>{posts.title}</li>))}
-                </ul>
+                <Grid>
+                    {this.props.posts.map((postItem) => (
+                        <Row className="show-grid"><Col md={10}><Post post={postItem}/></Col></Row>))}
+                </Grid>
             </div>
         )
     }
