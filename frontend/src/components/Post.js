@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {PropTypes} from 'prop-types';
-import {Badge, Button, ButtonGroup, Collapse, Glyphicon, Media} from 'react-bootstrap';
+import {Badge, Button, ButtonGroup, Collapse, Glyphicon, Media, Well} from 'react-bootstrap';
 
 class Post extends Component {
     static propTypes = {}
@@ -34,9 +34,9 @@ class Post extends Component {
                         </Button>
                         <Collapse in={this.state.open}>
                             <div>
-                                <well>
+                                <Well>
                                     Hallo All
-                                </well>
+                                </Well>
                             </div>
                         </Collapse>
                     </Media.Body>

@@ -10,8 +10,9 @@ class Posts extends Component {
         return (
             <div>
                 <Grid>
-                    {this.props.posts.map((postItem) => (
-                        <Row className="show-grid"><Col md={10}><Post post={postItem}/></Col></Row>))}
+                    {this.props.posts.map((postItem, index) => (
+                        <Row className="show-grid" key={index}><Col md={10}><Post post={postItem}/></Col></Row>))}
+                            <Post/>
                 </Grid>
             </div>
         )

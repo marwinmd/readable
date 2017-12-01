@@ -7,6 +7,7 @@ class Categorie extends Component {
     static propTypes = {}
 
     render() {
+
         return (
             <div>
                 <h2><Label> {this.props.name}</Label></h2>
@@ -14,5 +15,4 @@ class Categorie extends Component {
         )
     }
 }
-
 export default Categorie;
