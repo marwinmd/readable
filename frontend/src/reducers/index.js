@@ -1,50 +1,51 @@
 import {combineReducers} from 'redux';
-import {LOAD_ALL_CATEGORIES} from "../actions/index";
+import {LOAD_ALL_CATEGORIES, LOAD_ALL_POSTS, LOAD_POSTS_FOR_CATEGORY} from "../actions/index";
 
-const initialState = {
-    categories: [{
-        name: 'All',
-        path: 'all'
-    }],
-    posts: ['post']
+const initialStateForCateories = {
+    categories: [],
 }
 
-function category(state = initialState, action) {
-
+const initialStateForPosts = {
+    posts: []
+}
+function categoryReducer(state = initialStateForCateories, action) {
     switch (action.type) {
         case LOAD_ALL_CATEGORIES :
-            var items = state.categories;
-            action.categories.map((t) => items.push(t))
             return {
-                ...state,
-                categories: items
-            }
+                categories: action.categories
+            };
+
         default:
             return state
     }
 }
 
-function post(state = {}, action) {
+function postReducer(state = initialStateForPosts, action) {
     switch (action.type) {
+        case LOAD_ALL_POSTS :
+            return {
+                posts: action.posts
+            };
+        case LOAD_POSTS_FOR_CATEGORY :
+
+
         default:
             return state;
     }
 }
 
 
-function comment(state = {}, action) {
+function commentReducer(state = {}, action) {
     switch (action.type) {
-        case 'LOAD_ALL_CATEGORIES':
-            return state;
         default:
             return state;
     }
 }
 
 export default combineReducers({
-    category,
-    post,
-    comment
+    categoryReducer,
+    postReducer,
+    commentReducer
 })
 
 

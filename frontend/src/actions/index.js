@@ -1,19 +1,27 @@
 export const LOAD_ALL_CATEGORIES = 'LOAD_ALL_CATEGORIES';
-export const LOAD_POSTS_FOR_CATEGORY = 'LOAD_ALL_CATEGORY';
-export const {LOAD_COMMENT_FOR_POST} = 'LOAD_COMMENT_FOR_POST';
+export const LOAD_ALL_POSTS = 'LOAD_ALL_POSTS';
+export const LOAD_POSTS_FOR_CATEGORY = 'LOAD_POSTS_FOR_CATEGORY';
+export const LOAD_COMMENT_FOR_POST = 'LOAD_COMMENT_FOR_POST';
 
 export function loadAllCategories({categories}) {
-    console.log({categories})
-
     return {
         type: LOAD_ALL_CATEGORIES,
         categories
     };
 }
 
-export function loadPostsForCategory({categorie}) {
+export function loadAllPosts({posts}) {
+    return {
+        type: LOAD_ALL_POSTS,
+        posts
+    };
+}
+
+export function loadPostsForCategory({posts}) {
+    debugger
     return {
         type: LOAD_POSTS_FOR_CATEGORY,
+        posts
 
     }
 }

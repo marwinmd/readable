@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {PropTypes} from 'prop-types';
-import {LOAD_ALL_POSTS, loadAllPosts} from "../actions/index";
-import {connect} from 'react-redux';
-import {Col, Grid, Row} from 'react-bootstrap'
-import {fetchAllPosts} from "../utils/api";
 import Post from './Post';
+import {Col, Grid, Row} from 'react-bootstrap'
+import {LOAD_ALL_POSTS, loadAllPosts} from "../actions/index";
+import {fetchAllPosts} from "../utils/api";
+import {connect} from 'react-redux';
 
-class Posts extends Component {
+class AllPostsCategory extends Component {
     static propTypes = {}
 
     constructor(props) {
@@ -17,12 +17,11 @@ class Posts extends Component {
         });
     }
 
-
     render() {
         return (
             <div>
                 <Grid>
-                    {this.props.posts.filter(post => post.category === this.props.category.name).map((postItem, index) => (
+                    {this.props.posts.map((postItem, index) => (
                         <Row className="show-grid" key={index}><Col md={10}><Post post={postItem}/></Col></Row>))}
                     <Post/>
                 </Grid>
@@ -34,7 +33,6 @@ class Posts extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         getAllPosts: (data) => dispatch(loadAllPosts(data)),
-
     }
 }
 
@@ -47,5 +45,5 @@ function mapStateToProps(state) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Posts);
+)(AllPostsCategory);
 
